@@ -1,0 +1,74 @@
+//1.Doctors Listing Endpoint:
+//a. Endpoint: /api/doctors
+//b. Method: GET
+//c. Description: Retrieve a list of all doctors available in the system.
+[
+  {
+    "id": 1,
+    "name": "Dr. John Smith",
+    "specialization": "Cardiology"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Emily Johnson",
+    "specialization": "Dermatology"
+  },
+  ...
+]
+//2. Doctor Detail Endpoint:
+//a. Endpoint: /api/doctors/{doctorId}
+//b. Method: GET
+//c. Description: Retrieve details of a specific doctor.
+{
+  "id": 1,
+  "name": "Dr. John Smith",
+  "specialization": "Cardiology",
+  "availableDays": ["Monday", "Wednesday", "Friday"],
+  "availableTime": "5:00 PM - 8:00 PM",
+  "maxPatientsPerDay": 10
+}
+
+//.3Availability Endpoint:
+//a. Endpoint: /api/doctors/{doctorId}/availability
+//b. Method: GET
+//c. Description: Retrieve availability slots for a specific doctor.
+//d. Query Parameters:
+//e. date: The `date` for which availability slots are requested.
+
+[
+  {
+    "date": "2024-04-15",
+    "slots": [
+      "5:00 PM - 5:30 PM",
+      "5:30 PM - 6:00 PM",
+      ...
+    ]
+  },
+  ...
+]
+
+//4. Appointment Booking Endpoint:
+//a. Endpoint: /api/appointments/book
+//b. Method: POST
+//c. Description: Book an appointment with a specific doctor.
+// Request Body:
+{
+  "doctorId": 1,
+  "date": "2024-04-15",
+  "timeSlot": "5:00 PM - 5:30 PM",
+  "patientName": "Alice Johnson",
+  "patientEmail": "alice@example.com",
+  ...
+}
+// Responce
+{
+  "appointmentId": 123,
+  "doctorId": 1,
+  "date": "2024-04-15",
+  "timeSlot": "5:00 PM - 5:30 PM",
+  "patientName": "Alice Johnson",
+  "patientEmail": "alice@example.com",
+  "status": "Booked"
+}
+
+
